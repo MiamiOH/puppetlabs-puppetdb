@@ -235,7 +235,8 @@ class puppetdb::server (
         ensure  => directory,
         owner   => $puppetdb_user,
         group   => $puppetdb_group,
-        mode    => '0700';
+        mode    => '0700',
+        require => Package[$puppetdb_package];
       $ssl_key_path:
         ensure  => file,
         content => $ssl_key,
